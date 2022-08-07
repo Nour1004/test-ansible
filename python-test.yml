@@ -16,7 +16,7 @@
       synchronize:
         dest: /home/ubuntu/test_python/test_python.py
         mode: push
-        src: files/test_python.py
+        src: test_python.py
       delegate_to: localhost
     - 
       command: "python /home/ubuntu/test_python/test_python.py"
