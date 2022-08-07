@@ -14,7 +14,7 @@
     - 
       name: "copy python scripts"
       synchronize: 
-        delegate_to: localhost
+        # delegate_to: localhost
         dest: /home/ubuntu/test_python/test_python.py
         mode: push
         src: /home/nour/Desktop/test_python.py
