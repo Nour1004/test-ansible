@@ -3,19 +3,12 @@
   become: yes
 
   pre_tasks:
-    # - name: "Install packages"
-    #   dnf: "name={{ item }} state=present"
-    #   with_items:
-    #     - postgresql
-    #     - postgresql-server
-
     - name: "Install packages"
-      ansible.builtin.yum:
-        name:
-          - nginx
-          - postgresql
-          - postgresql-server
-        state: present
+      dnf: "name={{ item }} state=present"
+      with_items:
+        - postgresql
+        - postgresql-server
+
   
     - name: "Install packages"
       yum : "name={{ item }} state=present"
