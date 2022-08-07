@@ -19,10 +19,10 @@
         src: test_python.py
       delegate_to: localhost
     - 
-      command: "python /home/ubuntu/test_python/test_python.py"
+      command: "python /home/ubuntu/test_python.py"
       name: "run test_python.py"
     - 
-      command: "cat /home/ubuntu/test_python"
+      command: "cat /home/ubuntu/test_python.py"
       name: "read file content"
       register: out
     - 
