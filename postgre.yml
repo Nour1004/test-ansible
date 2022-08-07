@@ -6,12 +6,20 @@
     - vars.yml
 
   pre_tasks:
+    # - name: "Install packages"
+    #   dnf: "name={{ item }} state=present"
+    #   with_items:
+    #     - postgresql
+    #     - postgresql-server
+
     - name: "Install packages"
-      dnf: "name={{ item }} state=present"
-      with_items:
+      ansible.builtin.yum:
+      name:
+        - nginx
         - postgresql
         - postgresql-server
-
+      state: present
+  
     - name: "Install packages"
       yum : "name={{ item }} state=present"
       with_items:
