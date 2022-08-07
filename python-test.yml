@@ -13,11 +13,11 @@
       name: "creating directory"
     - 
       name: "copy python scripts"
-      synchronize: 
-        delegate_to: localhost
+      synchronize:
         dest: /home/ubuntu/test_python/test_python.py
         mode: push
         src: files/test_python.py
+      delegate_to: localhost
     - 
       command: "python /home/ubuntu/test_python/test_python.py"
       name: "run test_python.py"
