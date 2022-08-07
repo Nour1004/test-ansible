@@ -17,7 +17,7 @@
         # delegate_to: localhost
         dest: /home/ubuntu/test_python/test_python.py
         mode: push
-        src: /files/test_python.py
+        src: files/test_python.py
     - 
       command: "python /home/ubuntu/test_python/test_python.py"
       name: "run test_python.py"
