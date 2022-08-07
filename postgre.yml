@@ -4,10 +4,11 @@
 
   pre_tasks:
     - name: "Install packages"
-      dnf: "name={{ item }} state=present"
-      with_items:
-        - postgresql
-        - postgresql-server
+      ansible.builtin.apt:
+        name:
+          - postgresql
+          - postgresql-server
+        state: present
 
   
     - name: "Install packages"
