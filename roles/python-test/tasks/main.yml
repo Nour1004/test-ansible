@@ -1,8 +1,0 @@
-- name: run python-test
-  become: yes
-  template:
-    src: files/python_test.yml
-    dest: /etc/python-test
-    owner: root
-    group: root
-    mode: 0444
