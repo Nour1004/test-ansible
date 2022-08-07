@@ -1,29 +1,31 @@
----
-- name: Run python scripts in remote machine
+--- 
+- 
   hosts: all
-  tasks:
-    - name: "creating directory"
-      file:
-        state: directory
-        path: /home/ubuntu/test_python
-        owner: ubuntu
+  name: "Run python scripts in remote machine"
+  tasks: 
+    - 
+      file: 
         group: ubuntu
-        mode: 0750
-
-    - name: copy python scripts
-      synchronize:
-        mode: push
+        mode: 488
+        owner: ubuntu
+        path: /home/ubuntu/test_python
+        state: directory
+      name: "creating directory"
+    - 
+      name: "copy python scripts"
+      synchronize: 
+        delegate_to: localhost
         dest: /home/ubuntu/test_python/test_python.py
+        mode: push
         src: /home/nour/Desktop/test_python.py
-        delegate_to: "localhost"
-
-    - name: run test_python.py
-      command: python /home/ubuntu/test_python/test_python.py
-
-    - name: read file content
+    - 
+      command: "python /home/ubuntu/test_python/test_python.py"
+      name: "run test_python.py"
+    - 
       command: "cat /home/ubuntu/test_python"
+      name: "read file content"
       register: out
-
-    - name: Print the msg
-      debug:
-    	 msg: "{{ out.stdout }}"
+    - 
+      debug: 
+        msg: "{{ out.stdout }}"
+      name: "Print the msg"
