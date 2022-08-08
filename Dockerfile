@@ -1,3 +1,3 @@
-FROM postgres:14.3
+FROM docker.io/postgres:14.3
 ENV POSTGRES_PASSWORD 1234
     POSTGRES_DB test
