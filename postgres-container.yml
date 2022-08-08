@@ -24,13 +24,14 @@
           src: Dockerfile
       delegate_to: localhost
     
-    - name: "Build postgres image"
-      containers.podman.podman_image:
-        name: postgres
-        path: /home/ubuntu/postgres/
+    # - name: "Build postgres image"
+    #   containers.podman.podman_image:
+    #     name: postgres
+    #     path: /home/ubuntu/postgres/
 
     - name: Run container
       containers.podman.podman_container:
         name: postgres-container
-        image: postgres
+        image: docker.io/postgres
         state: started
+
