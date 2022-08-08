@@ -3,6 +3,14 @@
   become: yes
 
   pre_tasks:
+    - file: 
+        group: ubuntu
+        mode: 488
+        owner: ubuntu
+        path: /home/ubuntu/postgres
+        state: directory
+      name: "creating directory"
+
     - name: "Install podman"
       ansible.builtin.apt:
         name:
