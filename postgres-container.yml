@@ -35,6 +35,6 @@
         image: docker.io/postgres
         env:
           - POSTGRES_PASSWORD: 1234 
-          - POSTGRES_DB: test
+            POSTGRES_DB: test
         state: started
 
