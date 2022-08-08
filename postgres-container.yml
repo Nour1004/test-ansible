@@ -32,9 +32,9 @@
     - name: Run container
       containers.podman.podman_container:
         name: postgres-container
-        image: docker.io/postgres
-        env:
-          POSTGRES_PASSWORD: 1234 
-          POSTGRES_DB: test
+        image: postgres
+        # env:
+        #   POSTGRES_PASSWORD: 1234 
+        #   POSTGRES_DB: test
         state: started
 

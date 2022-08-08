@@ -1,0 +1,14 @@
+---
+- hosts: all
+  become: yes
+
+  pre_tasks:
+    - name: "Build postgres image"
+      containers.podman.podman_image:
+        name: docker.io/redis
+
+    - name: Run container
+      containers.podman.podman_container:
+        name: redis
+        image: docker.io/redis
+        state: started
