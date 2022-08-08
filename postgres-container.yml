@@ -3,6 +3,12 @@
   become: yes
 
   pre_tasks:
+    - name: "Install podman"
+      ansible.builtin.apt:
+        name:
+          - podman
+        state: present
+
     - file: 
         group: ubuntu
         mode: 488
@@ -10,12 +16,6 @@
         path: /home/ubuntu/postgres
         state: directory
       name: "creating directory"
-
-    - name: "Install podman"
-      ansible.builtin.apt:
-        name:
-          - podman
-        state: present
     
     - name: "Copy dockerfile"
       synchronize:
@@ -23,3 +23,14 @@
           mode: push
           src: Dockerfile
       delegate_to: localhost
+    
+    - name: "Build postgres image"
+      containers.podman.podman_image:
+        name: postgres
+        path: /home/ubuntu/postgres/
+
+    - name: Run container
+      containers.podman.podman_container:
+        name: postgres-container
+        image: postgres
+        state: started
