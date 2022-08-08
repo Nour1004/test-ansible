@@ -7,7 +7,7 @@
       ansible.builtin.apt:
         name:
           - postgresql
-          - postgresql-contrib
+          - postgresql-server
         state: present
 
   
