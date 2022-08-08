@@ -1,17 +1,17 @@
 ---
-hosts: all
-become: yes
+- hosts: all
+  become: yes
 
-pre_tasks:
-  - name: "Install podman"
-    ansible.builtin.apt:
-      name:
-        - podman
-      state: present
-  
-  - name: "Copy dockerfile"
-    synchronize:
-        dest: /home/ubuntu/postgres/Dockerfile
-        mode: push
-        src: Dockerfile
-    delegate_to: localhost
+  pre_tasks:
+    - name: "Install podman"
+      ansible.builtin.apt:
+        name:
+          - podman
+        state: present
+    
+    - name: "Copy dockerfile"
+      synchronize:
+          dest: /home/ubuntu/postgres/Dockerfile
+          mode: push
+          src: Dockerfile
+      delegate_to: localhost
